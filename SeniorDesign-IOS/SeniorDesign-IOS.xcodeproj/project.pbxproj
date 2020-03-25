@@ -3,19 +3,25 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D724D6F2424579200D51BB9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D724D6E2424579200D51BB9 /* SearchViewController.swift */; };
+		0DBE6E152412A66D001CE52F /* BarCodeDetectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */; };
 		0DDB857F24117BD5000CC91C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB857E24117BD5000CC91C /* AppDelegate.swift */; };
 		0DDB858124117BD5000CC91C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB858024117BD5000CC91C /* SceneDelegate.swift */; };
 		0DDB858324117BD5000CC91C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB858224117BD5000CC91C /* ViewController.swift */; };
 		0DDB858624117BD5000CC91C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DDB858424117BD5000CC91C /* Main.storyboard */; };
 		0DDB858824117BD9000CC91C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DDB858724117BD9000CC91C /* Assets.xcassets */; };
 		0DDB858B24117BD9000CC91C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DDB858924117BD9000CC91C /* LaunchScreen.storyboard */; };
+		0DDB85932412969C000CC91C /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0DDB85922412969C000CC91C /* GoogleService-Info.plist */; };
+		33A7A31EEFF3A32B9060971E /* Pods_SeniorDesign_IOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F8C044A20A6EDF490A6AE200 /* Pods_SeniorDesign_IOS.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D724D6E2424579200D51BB9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeDetectorViewController.swift; sourceTree = "<group>"; };
 		0DDB857B24117BD5000CC91C /* SeniorDesign-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeniorDesign-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDB857E24117BD5000CC91C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DDB858024117BD5000CC91C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +30,10 @@
 		0DDB858724117BD9000CC91C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0DDB858A24117BD9000CC91C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0DDB858C24117BD9000CC91C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DDB85922412969C000CC91C /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		18FAFECE239A3BBBBFFDF5A0 /* Pods-SeniorDesign-IOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeniorDesign-IOS.release.xcconfig"; path = "Target Support Files/Pods-SeniorDesign-IOS/Pods-SeniorDesign-IOS.release.xcconfig"; sourceTree = "<group>"; };
+		3D8BB61A6B39EAC1DBA129B4 /* Pods-SeniorDesign-IOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SeniorDesign-IOS.debug.xcconfig"; path = "Target Support Files/Pods-SeniorDesign-IOS/Pods-SeniorDesign-IOS.debug.xcconfig"; sourceTree = "<group>"; };
+		F8C044A20A6EDF490A6AE200 /* Pods_SeniorDesign_IOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SeniorDesign_IOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +41,45 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A7A31EEFF3A32B9060971E /* Pods_SeniorDesign_IOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DBE6E1124129E57001CE52F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0DBE6E1224129E84001CE52F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0DDB858424117BD5000CC91C /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0DBE6E1324129E8E001CE52F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				0DDB858224117BD5000CC91C /* ViewController.swift */,
+				0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */,
+				0D724D6E2424579200D51BB9 /* SearchViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		0DDB857224117BD5000CC91C = {
 			isa = PBXGroup;
 			children = (
 				0DDB857D24117BD5000CC91C /* SeniorDesign-IOS */,
 				0DDB857C24117BD5000CC91C /* Products */,
+				5302F8C538A8D649B7B2F0D1 /* Pods */,
+				5BE3E7327285B9B92E1DF04D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,13 +96,32 @@
 			children = (
 				0DDB857E24117BD5000CC91C /* AppDelegate.swift */,
 				0DDB858024117BD5000CC91C /* SceneDelegate.swift */,
-				0DDB858224117BD5000CC91C /* ViewController.swift */,
-				0DDB858424117BD5000CC91C /* Main.storyboard */,
+				0DBE6E1124129E57001CE52F /* Model */,
+				0DBE6E1224129E84001CE52F /* View */,
+				0DBE6E1324129E8E001CE52F /* Controller */,
 				0DDB858724117BD9000CC91C /* Assets.xcassets */,
 				0DDB858924117BD9000CC91C /* LaunchScreen.storyboard */,
 				0DDB858C24117BD9000CC91C /* Info.plist */,
+				0DDB85922412969C000CC91C /* GoogleService-Info.plist */,
 			);
 			path = "SeniorDesign-IOS";
+			sourceTree = "<group>";
+		};
+		5302F8C538A8D649B7B2F0D1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D8BB61A6B39EAC1DBA129B4 /* Pods-SeniorDesign-IOS.debug.xcconfig */,
+				18FAFECE239A3BBBBFFDF5A0 /* Pods-SeniorDesign-IOS.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		5BE3E7327285B9B92E1DF04D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F8C044A20A6EDF490A6AE200 /* Pods_SeniorDesign_IOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +131,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0DDB858F24117BD9000CC91C /* Build configuration list for PBXNativeTarget "SeniorDesign-IOS" */;
 			buildPhases = (
+				0F24C7B1D0AD5118C45F61A8 /* [CP] Check Pods Manifest.lock */,
 				0DDB857724117BD5000CC91C /* Sources */,
 				0DDB857824117BD5000CC91C /* Frameworks */,
 				0DDB857924117BD5000CC91C /* Resources */,
+				08B816FA6BE4DD290781143F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +185,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DDB858B24117BD9000CC91C /* LaunchScreen.storyboard in Resources */,
+				0DDB85932412969C000CC91C /* GoogleService-Info.plist in Resources */,
 				0DDB858824117BD9000CC91C /* Assets.xcassets in Resources */,
 				0DDB858624117BD5000CC91C /* Main.storyboard in Resources */,
 			);
@@ -133,14 +193,58 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		08B816FA6BE4DD290781143F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeniorDesign-IOS/Pods-SeniorDesign-IOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SeniorDesign-IOS/Pods-SeniorDesign-IOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SeniorDesign-IOS/Pods-SeniorDesign-IOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		0F24C7B1D0AD5118C45F61A8 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SeniorDesign-IOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0DDB857724117BD5000CC91C /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D724D6F2424579200D51BB9 /* SearchViewController.swift in Sources */,
 				0DDB858324117BD5000CC91C /* ViewController.swift in Sources */,
 				0DDB857F24117BD5000CC91C /* AppDelegate.swift in Sources */,
 				0DDB858124117BD5000CC91C /* SceneDelegate.swift in Sources */,
+				0DBE6E152412A66D001CE52F /* BarCodeDetectorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,6 +386,7 @@
 		};
 		0DDB859024117BD9000CC91C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D8BB61A6B39EAC1DBA129B4 /* Pods-SeniorDesign-IOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -300,6 +405,7 @@
 		};
 		0DDB859124117BD9000CC91C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18FAFECE239A3BBBBFFDF5A0 /* Pods-SeniorDesign-IOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

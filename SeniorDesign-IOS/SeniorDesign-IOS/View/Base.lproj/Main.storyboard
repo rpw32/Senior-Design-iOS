@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="SeniorDesign_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Senior Design" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r9h-ua-Swf">
+                                <rect key="frame" x="117" y="175" width="180" height="36"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2lR-Ju-waP">
+                                <rect key="frame" x="136" y="530" width="143" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Scan" backgroundImage="app.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="scanButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CCi-zg-fkR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4a-NK-Mqu">
+                                <rect key="frame" x="136" y="619" width="143" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Search" backgroundImage="app.fill" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="searchButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HE7-MA-Ach"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <segue destination="Ohs-gY-AH5" kind="presentation" identifier="goToScan" id="1WQ-K0-C4x"/>
+                        <segue destination="W6g-Yg-i4F" kind="presentation" identifier="goToSearch" id="q1z-Fs-ech"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-10.144927536231885" y="77.678571428571431"/>
+        </scene>
+        <!--Bar Code Detector View Controller-->
+        <scene sceneID="3jh-lG-Woc">
+            <objects>
+                <viewController storyboardIdentifier="BarCodeDetectorViewController" id="Ohs-gY-AH5" customClass="BarCodeDetectorViewController" customModule="SeniorDesign_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cPH-fZ-yoG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="0Dh-PQ-nRh">
+                                <rect key="frame" x="7" y="147" width="400" height="256.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAN-C7-Kbh">
+                                        <rect key="frame" x="146.5" y="0.0" width="107" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Firebase" translatesAutoresizingMaskIntoConstraints="NO" id="MfL-Sg-B4S">
+                                        <rect key="frame" x="0.0" y="45" width="400" height="211.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="400" id="sRN-LQ-tw1"/>
+                                            <constraint firstAttribute="height" constant="211.5" id="xZC-g2-0yb"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="ez7-Mh-2kD" firstAttribute="trailing" secondItem="0Dh-PQ-nRh" secondAttribute="trailing" constant="7" id="2dr-zN-Feb"/>
+                            <constraint firstItem="0Dh-PQ-nRh" firstAttribute="top" secondItem="ez7-Mh-2kD" secondAttribute="top" constant="147" id="3qD-ru-NWR"/>
+                            <constraint firstItem="0Dh-PQ-nRh" firstAttribute="leading" secondItem="ez7-Mh-2kD" secondAttribute="leading" constant="7" id="cKq-AV-SzL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ez7-Mh-2kD"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="MfL-Sg-B4S" id="CmP-W9-tZ4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hVU-yy-0Do" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="815.94202898550736" y="-246.42857142857142"/>
+        </scene>
+        <!--Search View Controller-->
+        <scene sceneID="axo-Ty-tc2">
+            <objects>
+                <viewController storyboardIdentifier="SearchViewController" id="W6g-Yg-i4F" customClass="SearchViewController" customModule="SeniorDesign_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bh1-Gq-XbE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="74" translatesAutoresizingMaskIntoConstraints="NO" id="wgY-H3-fL6">
+                                <rect key="frame" x="43" y="60" width="328" height="144"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Search" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G6b-SH-NUR">
+                                        <rect key="frame" x="119" y="0.0" width="90.5" height="36"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="GEF-vX-N63">
+                                        <rect key="frame" x="0.0" y="110" width="328" height="34"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Gxe-nx-BUL">
+                                                <rect key="frame" x="0.0" y="0.0" width="270" height="34"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="34" id="EDj-1L-nQh"/>
+                                                    <constraint firstAttribute="width" constant="270" id="KPS-MF-3Mf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q8N-gf-9sQ">
+                                                <rect key="frame" x="280" y="0.0" width="48" height="34"/>
+                                                <state key="normal" title="Search"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="wgY-H3-fL6" firstAttribute="top" secondItem="rka-5V-9v7" secondAttribute="top" constant="60" id="6m7-4j-Kp6"/>
+                            <constraint firstItem="wgY-H3-fL6" firstAttribute="leading" secondItem="rka-5V-9v7" secondAttribute="leading" constant="43" id="CnA-sY-Yvn"/>
+                            <constraint firstItem="rka-5V-9v7" firstAttribute="trailing" secondItem="wgY-H3-fL6" secondAttribute="trailing" constant="43" id="x9O-sX-9FU"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rka-5V-9v7"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G2g-6M-ZFP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1613.0434782608697" y="79.6875"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Firebase" width="446" height="211.33332824707031"/>
+        <image name="app.fill" catalog="system" width="64" height="56"/>
+    </resources>
+</document>
