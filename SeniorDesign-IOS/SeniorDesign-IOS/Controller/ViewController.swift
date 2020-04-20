@@ -6,6 +6,7 @@
 //  Copyright © 2020 Riley Wagner. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import Firebase
 import AVFoundation
@@ -15,6 +16,21 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     @IBOutlet weak var imageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if UserDefaults.standard.string(forKey: "firstOpen") == nil {
+            UserDefaults.standard.set("", forKey: "firstOpen")
+            UserDefaults.standard.set(50, forKey: "calorieDensity")
+            UserDefaults.standard.set(50, forKey: "totalFat")
+            UserDefaults.standard.set(50, forKey: "saturatedFat")
+//            UserDefaults.standard.set(50, forKey: "transFat")
+            UserDefaults.standard.set(50, forKey: "cholesterolContent")
+            UserDefaults.standard.set(50, forKey: "sodiumContent")
+            UserDefaults.standard.set(50, forKey: "condSodiumContent")
+            UserDefaults.standard.set(50, forKey: "fiberContent")
+//            UserDefaults.standard.set(50, forKey: "flours")
+//            UserDefaults.standard.set(50, forKey: "sugars")
+        }
+
     
     }
     
@@ -26,6 +42,9 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
         self.performSegue(withIdentifier: "goToSearch", sender: self)
     }
     
-
+    @IBAction func settingsButtonPressed(_ sender: UIButton) {
+        self.performSegue(withIdentifier: "goToSettings", sender: self)
+    }
+    
 }
 

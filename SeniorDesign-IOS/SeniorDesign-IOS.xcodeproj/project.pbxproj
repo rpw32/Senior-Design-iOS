@@ -7,7 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D11473E243407C80033155A /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11473D243407C80033155A /* DetailViewController.swift */; };
+		0D114740243417680033155A /* DetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D11473F243417680033155A /* DetailModel.swift */; };
+		0D114742243417880033155A /* DetailData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D114741243417880033155A /* DetailData.swift */; };
+		0D1B5BC0242BEBA9004404FD /* FoodManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B5BBF242BEBA9004404FD /* FoodManager.swift */; };
+		0D1B5BC2242BEC09004404FD /* FoodModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B5BC1242BEC09004404FD /* FoodModel.swift */; };
+		0D1B5BC4242BEC14004404FD /* FoodData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D1B5BC3242BEC14004404FD /* FoodData.swift */; };
+		0D22084D244BD46A001CFB56 /* TestsActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D22084C244BD46A001CFB56 /* TestsActivity.swift */; };
 		0D724D6F2424579200D51BB9 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D724D6E2424579200D51BB9 /* SearchViewController.swift */; };
+		0D836FC4244D3FA90079E9A3 /* TestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D836FC3244D3FA90079E9A3 /* TestsViewController.swift */; };
+		0D836FC6244D7CBE0079E9A3 /* SurveyButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D836FC5244D7CBE0079E9A3 /* SurveyButton.swift */; };
+		0D836FC8244D8CE10079E9A3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D836FC7244D8CE10079E9A3 /* SettingsViewController.swift */; };
 		0DBE6E152412A66D001CE52F /* BarCodeDetectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */; };
 		0DDB857F24117BD5000CC91C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB857E24117BD5000CC91C /* AppDelegate.swift */; };
 		0DDB858124117BD5000CC91C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DDB858024117BD5000CC91C /* SceneDelegate.swift */; };
@@ -20,9 +30,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0D11473D243407C80033155A /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		0D11473F243417680033155A /* DetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailModel.swift; sourceTree = "<group>"; };
+		0D114741243417880033155A /* DetailData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailData.swift; sourceTree = "<group>"; };
+		0D1B5BBF242BEBA9004404FD /* FoodManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodManager.swift; sourceTree = "<group>"; };
+		0D1B5BC1242BEC09004404FD /* FoodModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodModel.swift; sourceTree = "<group>"; };
+		0D1B5BC3242BEC14004404FD /* FoodData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodData.swift; sourceTree = "<group>"; };
+		0D22084C244BD46A001CFB56 /* TestsActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsActivity.swift; sourceTree = "<group>"; };
 		0D724D6E2424579200D51BB9 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		0D836FC3244D3FA90079E9A3 /* TestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestsViewController.swift; sourceTree = "<group>"; };
+		0D836FC5244D7CBE0079E9A3 /* SurveyButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurveyButton.swift; sourceTree = "<group>"; };
+		0D836FC7244D8CE10079E9A3 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarCodeDetectorViewController.swift; sourceTree = "<group>"; };
-		0DDB857B24117BD5000CC91C /* SeniorDesign-IOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeniorDesign-IOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0DDB857B24117BD5000CC91C /* Nutrition Scanner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Nutrition Scanner.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DDB857E24117BD5000CC91C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0DDB858024117BD5000CC91C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		0DDB858224117BD5000CC91C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -51,6 +71,12 @@
 		0DBE6E1124129E57001CE52F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0D1B5BBF242BEBA9004404FD /* FoodManager.swift */,
+				0D1B5BC1242BEC09004404FD /* FoodModel.swift */,
+				0D1B5BC3242BEC14004404FD /* FoodData.swift */,
+				0D11473F243417680033155A /* DetailModel.swift */,
+				0D114741243417880033155A /* DetailData.swift */,
+				0D22084C244BD46A001CFB56 /* TestsActivity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -59,6 +85,7 @@
 			isa = PBXGroup;
 			children = (
 				0DDB858424117BD5000CC91C /* Main.storyboard */,
+				0D836FC5244D7CBE0079E9A3 /* SurveyButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -69,6 +96,9 @@
 				0DDB858224117BD5000CC91C /* ViewController.swift */,
 				0DBE6E142412A66D001CE52F /* BarCodeDetectorViewController.swift */,
 				0D724D6E2424579200D51BB9 /* SearchViewController.swift */,
+				0D11473D243407C80033155A /* DetailViewController.swift */,
+				0D836FC3244D3FA90079E9A3 /* TestsViewController.swift */,
+				0D836FC7244D8CE10079E9A3 /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -86,7 +116,7 @@
 		0DDB857C24117BD5000CC91C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				0DDB857B24117BD5000CC91C /* SeniorDesign-IOS.app */,
+				0DDB857B24117BD5000CC91C /* Nutrition Scanner.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -143,7 +173,7 @@
 			);
 			name = "SeniorDesign-IOS";
 			productName = "SeniorDesign-IOS";
-			productReference = 0DDB857B24117BD5000CC91C /* SeniorDesign-IOS.app */;
+			productReference = 0DDB857B24117BD5000CC91C /* Nutrition Scanner.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -240,11 +270,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D11473E243407C80033155A /* DetailViewController.swift in Sources */,
 				0D724D6F2424579200D51BB9 /* SearchViewController.swift in Sources */,
 				0DDB858324117BD5000CC91C /* ViewController.swift in Sources */,
+				0D114742243417880033155A /* DetailData.swift in Sources */,
 				0DDB857F24117BD5000CC91C /* AppDelegate.swift in Sources */,
+				0D836FC6244D7CBE0079E9A3 /* SurveyButton.swift in Sources */,
+				0D836FC4244D3FA90079E9A3 /* TestsViewController.swift in Sources */,
+				0D1B5BC4242BEC14004404FD /* FoodData.swift in Sources */,
+				0D836FC8244D8CE10079E9A3 /* SettingsViewController.swift in Sources */,
+				0D22084D244BD46A001CFB56 /* TestsActivity.swift in Sources */,
 				0DDB858124117BD5000CC91C /* SceneDelegate.swift in Sources */,
+				0D114740243417680033155A /* DetailModel.swift in Sources */,
 				0DBE6E152412A66D001CE52F /* BarCodeDetectorViewController.swift in Sources */,
+				0D1B5BC0242BEBA9004404FD /* FoodManager.swift in Sources */,
+				0D1B5BC2242BEC09004404FD /* FoodModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,16 +430,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 858J6BA5WD;
+				DEVELOPMENT_TEAM = LXB79SV9EW;
 				INFOPLIST_FILE = "SeniorDesign-IOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rileywagner.SeniorDesign-IOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seniordesign.rileywagner;
+				PRODUCT_NAME = "Nutrition Scanner";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -409,16 +449,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 858J6BA5WD;
+				DEVELOPMENT_TEAM = LXB79SV9EW;
 				INFOPLIST_FILE = "SeniorDesign-IOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.rileywagner.SeniorDesign-IOS";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.seniordesign.rileywagner;
+				PRODUCT_NAME = "Nutrition Scanner";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
