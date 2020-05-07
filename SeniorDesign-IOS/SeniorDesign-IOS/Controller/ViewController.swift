@@ -17,6 +17,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        /* If it is the first time opening, UserDefault values are set to 50 (middle value and default) */
         if UserDefaults.standard.string(forKey: "firstOpen") == nil {
             UserDefaults.standard.set("", forKey: "firstOpen")
             UserDefaults.standard.set(50, forKey: "calorieDensity")
@@ -34,6 +35,7 @@ class ViewController: UIViewController, AVCaptureVideoDataOutputSampleBufferDele
     
     }
     
+    /* These actions determine which ViewController to move to based on the button pressed */
     @IBAction func scanButtonPressed(_ sender: UIButton) {
         self.performSegue(withIdentifier: "goToScan", sender: self)
     }

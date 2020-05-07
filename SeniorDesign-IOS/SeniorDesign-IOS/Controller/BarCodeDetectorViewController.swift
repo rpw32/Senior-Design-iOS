@@ -5,6 +5,7 @@
 //  Created by Senior Design  on 3/6/20.
 //  Copyright © 2020 Riley Wagner. All rights reserved.
 //
+//  This page contains all code related to the barcode scanner and passing the upc value to the DetailViewController.
 
 import Foundation
 import UIKit
@@ -22,6 +23,7 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
     var itemUpc = ""
     var fdcId = 0
     
+    /* Barcode types are specified here. All are enabled for flexibility although it could be beneficial performance-wise to select certain ones. */
     let barCodeTypes = [AVMetadataObject.ObjectType.upce,
                         AVMetadataObject.ObjectType.code39,
                         AVMetadataObject.ObjectType.code39Mod43,
@@ -44,6 +46,8 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        /* Called if running on a simulator to prevent a crash. Simulator does not allow for a camera to be used */
         if AVCaptureDevice.default(for: AVMediaType.video) == nil {
             
             DispatchQueue.main.async {
@@ -52,12 +56,13 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
                 self.present(self.alert, animated: true)
             }
         }
-        else {
+        else { /* Otherwise run the camera as normal */
             foodManager.delegate = self
             openCamera()
         }
     }
     
+    /* All code associated with the video frames being passed in as AVCaptureMetadata */
     func openCamera() {
         
         var success = false
@@ -84,7 +89,7 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
         if initialized {
             success = true
         }
-        else {
+        else { /* Finds device camera */
             let deviceDiscoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera, .builtInTelephotoCamera, .builtInDualCamera], mediaType: AVMediaType.video, position: .unspecified)
             
             if let captureDevice = deviceDiscoverySession.devices.first {
@@ -119,16 +124,17 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
 
     }
     
+    /* Catches video frames and sends them to the barcode scanner */
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject],
                  from connection: AVCaptureConnection) {
         processBarCodeData(metadataObjects: metadataObjects)
     }
     
+    /* Barcodes processed here and fdcId retrieved */
     func processBarCodeData(metadataObjects: [AVMetadataObject]) {
 
         if let metadataObject = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
             if barCodeTypes.contains(metadataObject.type) {
-                // If the found metadata is equal to the QR code metadata (or barcode) then update the status label's text and set the bounds
                 
                 if metadataObject.stringValue != nil {
                     DispatchQueue.main.async {
@@ -139,8 +145,7 @@ class BarCodeDetectorViewController: UIViewController, AVCaptureMetadataOutputOb
                         print(self.itemUpc)
                         self.foodManager.fetchFoodList(generalSearchInput: self.itemUpc, requireAllWords: "true", pageNumber: "", sortField: "", sortDirection: "")
                     }
-                    // because there might be more bar codes detected, we return from the loop early
-                    // here so we do not process more than one
+                    
                     return
                 }
             }
@@ -168,6 +173,8 @@ extension BarCodeDetectorViewController: FoodManagerDelegate {
     func didFailWithError(error: Error) {
         print(error)
     }
+    
+    /* fdcId retrieved here and passed to DetailViewController */
     func didUpdateFoods(_ foodManager: FoodManager, foods: FoodModel) {
         if foods.foodsArray.isEmpty && retry != 1 {
             print("Food not found, trying again with altered UPC")

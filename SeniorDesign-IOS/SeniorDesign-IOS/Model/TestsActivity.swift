@@ -43,7 +43,7 @@ class TestsActivity {
     }
     
     func totalFat(_ calories: Double, _ fat: Double) -> Result {
-        let testValue = /*settingValue * */50 * 0.02 * 0.175
+        let testValue = UserDefaults.standard.double(forKey: "totalFat") * 0.02 * 0.175
 
         var testResult = ""
         var testRating = -1
@@ -75,7 +75,7 @@ class TestsActivity {
     }
     
     func saturatedFat(_ calories: Double, _ satFat: Double) -> Result {
-        let testValue = /*settingValue * */ 50 * 0.02 * 0.06
+        let testValue = UserDefaults.standard.double(forKey: "saturatedFat") * 0.02 * 0.06
 
         var testResult = ""
         let satFatComp = (satFat * 9) / calories               //fat is 9 cals/g. This calculates Saturated Fat composition
@@ -120,6 +120,15 @@ class TestsActivity {
                     testRating = 2
                 }
         }
+        else {
+            if transFats > 0.0 {
+                testResult = "This food contains trans fats."
+                testRating = 0
+            }
+            else{
+                testResult = "This food did not provide ingredients"
+            }
+        }
 
         if((testRating == -1) || (testResult == "")){
             //error: no rating given
@@ -130,7 +139,7 @@ class TestsActivity {
     }
     
     func cholesterolContent(_ cholesterol: Double) -> Result {
-        let testValue = /*settingValue * */50 * 0.02 * 12.5;
+        let testValue = UserDefaults.standard.double(forKey: "cholesterolContent") * 0.02 * 12.5;
 
         var testResult = ""
         var testRating = -1
@@ -157,8 +166,8 @@ class TestsActivity {
     }
     
     func sodiumContent(_ calories: Double, _ sodium: Double, _ category: String?) -> Result {
-        let testValue = /* settingValue * */50 * 0.02 * 1
-        let condTestValue = /* condSettingValue * */50 * 0.02 * 2
+        let testValue = UserDefaults.standard.double(forKey: "sodiumContent") * 0.02 * 1
+        let condTestValue = UserDefaults.standard.double(forKey: "condSodiumContent") * 0.02 * 2
 
         var testResult = ""
         var testRating = -1
@@ -204,7 +213,7 @@ class TestsActivity {
     }
     
     func fiberContent(_ calories: Double, _ fiber: Double) -> Result {
-        let testValue = /* settingValue * */50 * 0.02 * 2
+        let testValue = UserDefaults.standard.double(forKey: "fiberContent") * 0.02 * 2
 
         let fiberToCalorieRatio = (fiber/calories) * 100
         var testResult = ""

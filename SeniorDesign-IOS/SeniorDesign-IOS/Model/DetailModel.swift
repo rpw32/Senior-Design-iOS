@@ -18,7 +18,7 @@ struct DetailModel {
     let servingSize: Float?
     let servingSizeUnit: String?
     let foodPortions: [FoodPortions]?
-    let foodCategory: WweiaFoodCategory?
+    let foodCategory: String?
     
     init() {
         self.foodClass = ""
@@ -32,7 +32,7 @@ struct DetailModel {
         self.foodCategory = nil
     }
     
-    init(_ foodClass: String, _ description: String, _ foodNutrients: [FoodNutrients], _ brandOwner: String?, _ ingredients: String?, _ servingSize: Float?, _ servingSizeUnit: String?, _ foodPortions: [FoodPortions]?, _ foodCategory: WweiaFoodCategory?) {
+    init(_ foodClass: String, _ description: String, _ foodNutrients: [FoodNutrients], _ brandOwner: String?, _ ingredients: String?, _ servingSize: Float?, _ servingSizeUnit: String?, _ foodPortions: [FoodPortions]?, _ foodCategory: String?) {
         self.foodClass = foodClass
         self.description = description
         self.foodNutrients = foodNutrients

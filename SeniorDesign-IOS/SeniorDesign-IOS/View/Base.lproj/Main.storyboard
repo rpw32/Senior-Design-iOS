@@ -96,23 +96,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="54" translatesAutoresizingMaskIntoConstraints="NO" id="0Dh-PQ-nRh">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="0Dh-PQ-nRh">
                                 <rect key="frame" x="0.0" y="69" width="414" height="739"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scanner" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KAN-C7-Kbh">
-                                        <rect key="frame" x="153.66666666666666" y="0.0" width="106.99999999999997" height="38.666666666666664"/>
+                                        <rect key="frame" x="153.66666666666666" y="0.0" width="106.99999999999997" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="30" id="fp3-dj-sAz"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="MfL-Sg-B4S">
-                                        <rect key="frame" x="0.0" y="92.666666666666686" width="414" height="646.33333333333326"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.viewfinder" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="MfL-Sg-B4S">
+                                        <rect key="frame" x="0.0" y="51.666666666666686" width="414" height="686"/>
                                     </imageView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="MfL-Sg-B4S" firstAttribute="leading" secondItem="0Dh-PQ-nRh" secondAttribute="leading" id="4Bf-LU-5vo"/>
                                     <constraint firstAttribute="bottom" secondItem="MfL-Sg-B4S" secondAttribute="bottom" id="Dd0-ML-HcB"/>
-                                    <constraint firstItem="MfL-Sg-B4S" firstAttribute="top" secondItem="KAN-C7-Kbh" secondAttribute="bottom" constant="54" id="ERX-EO-iEW"/>
                                     <constraint firstItem="MfL-Sg-B4S" firstAttribute="centerX" secondItem="0Dh-PQ-nRh" secondAttribute="centerX" id="WM0-17-6VO"/>
                                     <constraint firstAttribute="trailing" secondItem="MfL-Sg-B4S" secondAttribute="trailing" id="v0e-3o-qWB"/>
                                 </constraints>
@@ -310,7 +312,7 @@
                                                     <constraint firstAttribute="width" relation="lessThanOrEqual" constant="353" id="BEm-Y9-WFv"/>
                                                 </constraints>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w2B-sw-s0l">
+                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="w2B-sw-s0l">
                                                 <rect key="frame" x="0.0" y="150" width="414" height="523"/>
                                                 <color key="backgroundColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                             </stackView>
@@ -376,10 +378,10 @@
                                 <blurEffect style="regular"/>
                             </visualEffectView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Auz-Oj-rGS">
-                                <rect key="frame" x="44.666666666666657" y="121" width="325" height="600"/>
+                                <rect key="frame" x="32" y="121" width="350" height="600"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l10-aQ-Mai">
-                                        <rect key="frame" x="0.0" y="560" width="325" height="40"/>
+                                        <rect key="frame" x="0.0" y="560" width="350" height="40"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="o2o-mV-2EU"/>
@@ -392,12 +394,12 @@
                                         </connections>
                                     </button>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uS-EI-eob">
-                                        <rect key="frame" x="0.0" y="40" width="325" height="520"/>
+                                        <rect key="frame" x="0.0" y="40" width="350" height="520"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-uY-56h">
-                                                <rect key="frame" x="8" y="0.0" width="306" height="650"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="top" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="wTX-uY-56h">
+                                                <rect key="frame" x="8" y="0.0" width="329.66666666666669" height="750"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="650" id="N5z-Bn-2JY"/>
+                                                    <constraint firstAttribute="height" constant="750" id="N5z-Bn-2JY"/>
                                                 </constraints>
                                             </stackView>
                                         </subviews>
@@ -410,7 +412,7 @@
                                         </constraints>
                                     </scrollView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nutrition Tests" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8t6-c8-UAT">
-                                        <rect key="frame" x="106.33333333333334" y="9.9999999999999982" width="112" height="20.333333333333329"/>
+                                        <rect key="frame" x="119" y="9.9999999999999982" width="112" height="20.333333333333329"/>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -422,7 +424,7 @@
                                     <constraint firstItem="8uS-EI-eob" firstAttribute="leading" secondItem="Auz-Oj-rGS" secondAttribute="leading" id="5w6-0w-qGB"/>
                                     <constraint firstItem="8t6-c8-UAT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Auz-Oj-rGS" secondAttribute="leading" id="Aj0-T4-qGv"/>
                                     <constraint firstItem="l10-aQ-Mai" firstAttribute="top" secondItem="8uS-EI-eob" secondAttribute="bottom" id="BTl-bk-26U"/>
-                                    <constraint firstAttribute="width" constant="325" id="FpA-jt-vBW"/>
+                                    <constraint firstAttribute="width" constant="350" id="FpA-jt-vBW"/>
                                     <constraint firstItem="8t6-c8-UAT" firstAttribute="top" secondItem="Auz-Oj-rGS" secondAttribute="top" constant="10" id="Ggq-8O-H8V"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="8t6-c8-UAT" secondAttribute="trailing" id="H9b-ge-FgQ"/>
                                     <constraint firstItem="8uS-EI-eob" firstAttribute="centerY" secondItem="Auz-Oj-rGS" secondAttribute="centerY" id="I0z-eA-PP8"/>
@@ -759,5 +761,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="app.fill" catalog="system" width="128" height="114"/>
+        <image name="camera.viewfinder" catalog="system" width="128" height="114"/>
     </resources>
 </document>

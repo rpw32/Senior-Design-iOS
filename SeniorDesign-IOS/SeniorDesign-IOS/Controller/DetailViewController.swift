@@ -5,6 +5,7 @@
 //  Created by Senior Design  on 3/31/20.
 //  Copyright © 2020 Riley Wagner. All rights reserved.
 //
+//  This ViewController is responsible for the Detail page of the application. All nutrition facts as well as buttons to ingredients and the tests are found here.
 
 import Foundation
 import UIKit
@@ -21,6 +22,7 @@ class DetailViewController: UIViewController {
     
     typealias Result = (String,Int)
     
+    /* Initialized the Density results to be returned from the TestsActivity */
     var calorieDensityResult: Result = ("", -1)
     var totalFatResult: Result = ("", -1)
     var saturatedFatResult: Result = ("", -1)
@@ -53,15 +55,19 @@ class DetailViewController: UIViewController {
         scrollView.delegate = self
         foodManager.delegate = self
         
+        /* foodManager calls to retrieve the JSON request for the given food. Output is returned to didCreateDetail() */
         foodManager.fetchFoodDetail(fdcId: fdcId)
     }
     
+    /* Resets the view whenever serving size is changed */
     func resetStack() {
         for view in contentView.arrangedSubviews {
             view.removeFromSuperview()
         }
         
     }
+    
+    /* Called whenever the serving size changes */
     @IBAction func stepperChange(_ sender: UIStepper) {
         servingsField.text = String(format: "%.0f", sender.value)
         servingsSelection = sender.value
@@ -69,6 +75,7 @@ class DetailViewController: UIViewController {
         foodManager.fetchFoodDetail(fdcId: fdcId)
         
     }
+    /* Called whenever the user presses to see the ingredients of the food */
     @IBAction func ingredientsPressed(_ sender: UIButton) {
         let ingredientAlert = UIAlertController(title: "Ingredients", message: "\(ingredients)", preferredStyle: .alert)
         DispatchQueue.main.async {
@@ -77,6 +84,7 @@ class DetailViewController: UIViewController {
             //self.dismiss(animated: true, completion: nil)
         }
     }
+    /* Called whenever the user presses to see the 9 test results */
     @IBAction func nutritionPressed(_ sender: UIButton) {
         
         DispatchQueue.main.async {
@@ -84,6 +92,7 @@ class DetailViewController: UIViewController {
         }
     }
     
+    /* Prepares the data for the TestsViewController for optimized loading */
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.destination is TestsViewController {
             let resultsArray = [calorieDensityResult, totalFatResult, saturatedFatResult, transFatResult, cholesterolCountResult, sodiumContentResult, fiberContentResult, floursResult, sugarsResult]
@@ -97,6 +106,7 @@ class DetailViewController: UIViewController {
 }
 
 //MARK: - FoodManagerDelegate
+/* This area controls the data coming back from the foodManager */
 extension DetailViewController: FoodManagerDelegate, UIScrollViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -120,11 +130,13 @@ extension DetailViewController: FoodManagerDelegate, UIScrollViewDelegate, UIPic
     func didUpdateFoods(_ foodManager: FoodManager, foods: FoodModel) {
     }
     
+    /* After parsing, data is returned here from FoodManager. */
     func didCreateDetail(_ foodManager: FoodManager, detail: DetailModel) {
         self.detail = detail
         DispatchQueue.main.async {
             self.resetStack()
             
+            /* Checks to see if food is Survey or Branded with multiple portion options and sets the servingSize accordingly. Then adds them to the pickerView if portions are there */
             if self.update == 0 {
                 if !(detail.foodPortions?.isEmpty ?? false) {
                     self.portionField.placeholder = detail.foodPortions?[0].portionDescription
@@ -160,12 +172,13 @@ extension DetailViewController: FoodManagerDelegate, UIScrollViewDelegate, UIPic
             self.addNutrients(self.detail)
             self.printNutrients(self.nutrientData, self.detail)
             
+            /* The 9 tests are called here and stored in global variables */
             self.calorieDensityResult = self.tests.calorieDensity(Double((self.nutrientData.calories/100)*self.servingSize), Double(self.servingSize))
             self.totalFatResult = self.tests.totalFat(Double((self.nutrientData.calories/100)*self.servingSize), Double((self.nutrientData.fat/100)*self.servingSize))
             self.saturatedFatResult = self.tests.saturatedFat(Double((self.nutrientData.calories/100)*self.servingSize), Double((self.nutrientData.saturatedFat/100)*self.servingSize))
             self.transFatResult = self.tests.transFat(Double((self.nutrientData.transFat/100)*self.servingSize), self.detail.ingredients)
             self.cholesterolCountResult = self.tests.cholesterolContent(Double((self.nutrientData.cholesterol/100)*self.servingSize))
-            self.sodiumContentResult = self.tests.sodiumContent(Double((self.nutrientData.calories/100)*self.servingSize), Double((self.nutrientData.sodium/100)*self.servingSize), self.detail.foodCategory?.wweiaFoodCategoryDescription)
+            self.sodiumContentResult = self.tests.sodiumContent(Double((self.nutrientData.calories/100)*self.servingSize), Double((self.nutrientData.sodium/100)*self.servingSize), self.detail.foodCategory)
             self.fiberContentResult = self.tests.fiberContent(Double((self.nutrientData.calories/100)*self.servingSize), Double((self.nutrientData.fiber/100)*self.servingSize))
             self.floursResult = self.tests.flours(self.detail.ingredients)
             self.sugarsResult = self.tests.sugars(self.detail.ingredients)
@@ -189,6 +202,7 @@ extension DetailViewController: FoodManagerDelegate, UIScrollViewDelegate, UIPic
         print(error)
     }
 
+    /* The list of nutrients returned is parsed here based on the nutrientId */
     func addNutrients(_ detail: DetailModel){
         
         var calories: Float = 0.0
@@ -237,7 +251,16 @@ extension DetailViewController: FoodManagerDelegate, UIScrollViewDelegate, UIPic
         
     }
     
+    /* Food Nutrients are printed here to the scrollView */
     func printNutrients(_ data: NutrientData, _ detail: DetailModel) {
+        
+        let nutritionTitle = UILabel()
+        nutritionTitle.numberOfLines = 2
+        nutritionTitle.text = "Nutrition Facts\n"
+        nutritionTitle.font = UIFont(name: "HelveticaNeue-Bold", size: CGFloat(20))
+        self.contentView.addArrangedSubview(nutritionTitle)
+        
+        
         for i in 0...15 {
             let label = UILabel()
             switch (i) {

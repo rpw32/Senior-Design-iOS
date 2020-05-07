@@ -53,6 +53,8 @@ class SettingsViewController: UIViewController {
         popupView.layer.cornerRadius = 10
         popupView.layer.masksToBounds = true
         
+        
+        /* All values restored to their UserDefault setting from last time it was set. Sliders are moved back into place as well */
         calorieDensityResult = UserDefaults.standard.double(forKey:"calorieDensity")
         totalFatResult = UserDefaults.standard.double(forKey:"totalFat")
         saturatedFatResult = UserDefaults.standard.double(forKey:"saturatedFat")
@@ -72,29 +74,91 @@ class SettingsViewController: UIViewController {
         condSodiumSlider.value = Float(condSodiumContentResult/100)
         fiberSlider.value = Float(fiberContentResult/100)
         
-        calorieVal.text = "\(String(format: "%.3f", (calorieDensityResult*0.02*1.25)-0.25)) cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
-        totalFatVal.text = "\(String(format: "%.0f", ((totalFatResult*0.02*0.175)-0.025)*100))% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
-        satFatVal.text = "\(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)-0.01)*100))% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
-        cholVal.text = "\(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)-12.5))mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
-        sodiumVal.text = "\(String(format: "%.0f", (sodiumContentResult*0.02*1)-1)) mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
-        condSodiumVal.text = "\(String(format: "%.0f", (condSodiumContentResult*0.02*2)-2)) mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
-        fiberVal.text = "\(String(format: "%.0f", (fiberContentResult*0.02*2)-1)) g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+        
+        
+        /* Checking to make sure the values are not negative. Those that are are replaced with zeros */
+        if (calorieDensityResult*0.02*1.25)-0.25 < 0 {
+            calorieVal.text = "0 cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
+        }
+        else {
+            calorieVal.text = "\(String(format: "%.3f", (calorieDensityResult*0.02*1.25)-0.25)) cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
+        }
+        
+        if (((totalFatResult*0.02*0.175)-0.025)*100) < 0 {
+            totalFatVal.text = "0% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
+        }
+        else {
+            totalFatVal.text = "\(String(format: "%.0f", ((totalFatResult*0.02*0.175)-0.025)*100))% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
+        }
+        
+        if (((saturatedFatResult*0.02*0.06)-0.01)*100) < 0 {
+            satFatVal.text = "0% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
+        }
+        else {
+            satFatVal.text = "\(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)-0.01)*100))% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
+        }
+        
+        //cholesterol
+        if ((cholesterolCountResult*0.02*12.5)-12.5) < 0 {
+            cholVal.text = "0 mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
+        }
+        else {
+            cholVal.text = "\(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)-12.5))mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
+        }
+        
+        if ((sodiumContentResult*0.02*1)-1) < 0 {
+            sodiumVal.text = "0 mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
+        }
+        else {
+            sodiumVal.text = "\(String(format: "%.0f", (sodiumContentResult*0.02*1)-1)) mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
+        }
+        
+        if ((condSodiumContentResult*0.02*2)-2) < 0 {
+            condSodiumVal.text = "0 mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
+        }
+        else {
+            condSodiumVal.text = "\(String(format: "%.0f", (condSodiumContentResult*0.02*2)-2)) mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
+        }
+        
+        if ((fiberContentResult*0.02*2)-1) < 0 {
+            fiberVal.text = "0 g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+        }
+        else {
+            fiberVal.text = "\(String(format: "%.0f", (fiberContentResult*0.02*2)-1)) g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+        }
         
 
     }
     
+    
+    /* Called whenever sliders are moved on the settings screen. Some functions commented out as they are currently not offered as options. Could be added later.*/
     @IBAction func sliderMoved(_ sender: UISlider) {
         if sender == calorieSlider {
             calorieDensityResult = round(Double(sender.value)*100)
-            calorieVal.text = "\(String(format: "%.3f", (calorieDensityResult*0.02*1.25)-0.25)) cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
+            if (calorieDensityResult*0.02*1.25)-0.25 < 0 {
+                calorieVal.text = "0 cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
+            }
+            else {
+                calorieVal.text = "\(String(format: "%.3f", (calorieDensityResult*0.02*1.25)-0.25)) cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
+            }
         }
         else if sender == totalFatSlider {
             totalFatResult = round(Double(sender.value)*100)
-            totalFatVal.text = "\(String(format: "%.0f", ((totalFatResult*0.02*0.175)-0.025)*100))% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
+            if (((totalFatResult*0.02*0.175)-0.025)*100) < 0 {
+                totalFatVal.text = "0% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
+            }
+            else {
+                totalFatVal.text = "\(String(format: "%.0f", ((totalFatResult*0.02*0.175)-0.025)*100))% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
+            }
         }
         else if sender == satFatSlider {
             saturatedFatResult = round(Double(sender.value)*100)
-            satFatVal.text = "\(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)-0.01)*100))% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
+            if (((saturatedFatResult*0.02*0.06)-0.01)*100) < 0 {
+                satFatVal.text = "0% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
+            }
+            else {
+                satFatVal.text = "\(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)-0.01)*100))% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
+            }
         }
 //        else if sender == transFatSlider {
 //            transFatResult = round(Double(sender.value)*100)
@@ -102,19 +166,41 @@ class SettingsViewController: UIViewController {
 //        }
         else if sender == cholSlider {
             cholesterolCountResult = round(Double(sender.value)*100)
-            cholVal.text = "\(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)-12.5))mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
+            if ((cholesterolCountResult*0.02*12.5)-12.5) < 0 {
+                cholVal.text = "0 mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
+            }
+            else {
+                cholVal.text = "\(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)-12.5))mg - \(String(format: "%.0f", (cholesterolCountResult*0.02*12.5)+12.5))mg"
+            }
         }
         else if sender == sodiumSlider {
             sodiumContentResult = round(Double(sender.value)*100)
-            sodiumVal.text = "\(String(format: "%.0f", (sodiumContentResult*0.02*1)-1)) mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
+            if ((sodiumContentResult*0.02*1)-1) < 0 {
+                sodiumVal.text = "0 mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
+            }
+            else {
+                sodiumVal.text = "\(String(format: "%.0f", (sodiumContentResult*0.02*1)-1)) mg/cal - \(String(format: "%.0f", (sodiumContentResult*0.02*1)+1)) mg/cal"
+            }
+            
         }
         else if sender == condSodiumSlider {
             condSodiumContentResult = round(Double(sender.value)*100)
-            condSodiumVal.text = "\(String(format: "%.0f", (condSodiumContentResult*0.02*2)-2)) mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
+            if ((condSodiumContentResult*0.02*2)-2) < 0 {
+                condSodiumVal.text = "0 mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
+            }
+            else {
+                condSodiumVal.text = "\(String(format: "%.0f", (condSodiumContentResult*0.02*2)-2)) mg/cal - \(String(format: "%.0f", (condSodiumContentResult*0.02*2)+2)) mg/cal"
+            }
         }
         else if sender == fiberSlider {
             fiberContentResult = round(Double(sender.value)*100)
-            fiberVal.text = "\(String(format: "%.0f", (fiberContentResult*0.02*2)-1)) g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+            if ((fiberContentResult*0.02*2)-1) < 0 {
+                fiberVal.text = "0 g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+            }
+            else {
+                fiberVal.text = "\(String(format: "%.0f", (fiberContentResult*0.02*2)-1)) g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
+            }
+            
         }
 //        else if sender == flourSlider {
 //            floursResult = round(Double(sender.value)*100)
@@ -128,6 +214,7 @@ class SettingsViewController: UIViewController {
         
     }
     
+    /* Called whenever the reset button is pressed. Resets all global variables back to default state */
     @IBAction func resetPressed(_ sender: UIButton) {
         calorieDensityResult = 50
         totalFatResult = 50
@@ -145,6 +232,8 @@ class SettingsViewController: UIViewController {
         condSodiumSlider.value = Float(condSodiumContentResult/100)
         fiberSlider.value = Float(fiberContentResult/100)
         
+        
+        /* Values are translate from 0-100 scale to whatever the specific test calls for. The selected value chooses the middle point of the range. */
         calorieVal.text = "\(String(format: "%.3f", (calorieDensityResult*0.02*1.25)-0.25)) cal/serving - \(String(format: "%.3f", (calorieDensityResult*0.02*1.25)+0.25)) cal/serving"
         totalFatVal.text = "\(String(format: "%.0f", ((totalFatResult*0.02*0.175)-0.025)*100))% - \(String(format: "%.0f", ((totalFatResult*0.02*0.175)+0.025)*100))%"
         satFatVal.text = "\(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)-0.01)*100))% - \(String(format: "%.0f", ((saturatedFatResult*0.02*0.06)+0.01)*100))%"
@@ -154,6 +243,7 @@ class SettingsViewController: UIViewController {
         fiberVal.text = "\(String(format: "%.0f", (fiberContentResult*0.02*2)-1)) g - \(String(format: "%.0f", (fiberContentResult*0.02*2)+1)) g per 100 cal"
     }
     
+    /* Called when the settings are dismissed. Stores the global variables to their place in UserDefaults to be saved across sessions */
     @IBAction func buttonPressed(_ sender: UIButton) {
         UserDefaults.standard.set(calorieDensityResult, forKey:"calorieDensity")
         UserDefaults.standard.set(totalFatResult, forKey:"totalFat")

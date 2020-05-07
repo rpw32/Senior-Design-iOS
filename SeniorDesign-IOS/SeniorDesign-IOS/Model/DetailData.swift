@@ -17,7 +17,7 @@ struct DetailData: Codable {
     let servingSize: Float?
     let servingSizeUnit: String?
     let foodPortions: [FoodPortions]?
-    let wweiaFoodCategory: WweiaFoodCategory?
+    let brandedFoodCategory: String?
 }
 
 struct FoodNutrients: Codable {
@@ -37,9 +37,4 @@ struct FoodPortions: Codable {
     let portionDescription: String
     let sequenceNumber: Int
     let gramWeight: Float
-}
-
-struct WweiaFoodCategory: Codable{
-    let wweiaFoodCategoryCode: Int
-    let wweiaFoodCategoryDescription: String
 }

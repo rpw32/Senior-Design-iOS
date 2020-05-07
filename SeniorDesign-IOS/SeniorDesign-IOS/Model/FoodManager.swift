@@ -94,7 +94,7 @@ struct FoodManager {
             let servingSize = decodedData.servingSize
             let servingSizeUnit = decodedData.servingSizeUnit
             let foodPortions = decodedData.foodPortions
-            let foodCategory = decodedData.wweiaFoodCategory
+            let foodCategory = decodedData.brandedFoodCategory
             let detail = DetailModel(foodClass, description, foodNutrients, brandOwner, ingredients, servingSize, servingSizeUnit, foodPortions, foodCategory)
             return detail
         } catch {
